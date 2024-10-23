@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -10,7 +10,7 @@ class Category(models.Model):
     image  = models.ImageField(upload_to='upload/category')
 
     def __str__(self):
-        return self.name
+        return self.name 
     
     class Meta:
         verbose_name_plural = 'categories'
@@ -22,7 +22,7 @@ class Product(models.Model):
     description =  models.TextField()
     category =  models.ForeignKey(Category, on_delete=models.CASCADE)
     image =  models.ImageField(upload_to='upload/product')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
