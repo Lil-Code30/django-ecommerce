@@ -37,7 +37,7 @@
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4">{{ product.price}}/h3>
+                    <h3 class="font-weight-semi-bold mb-4">$ {{ product.price}}</h3>
                     <p class="mb-4">{{ product.description}}</p>
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
@@ -202,14 +202,12 @@
                             <div class="product-action">
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="">{{ related_product.name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <h5>{{ related_product.price}}</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                <h5>$ {{ related_product.price}}</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                             </div>
                             <div class="d-flex align-items-center justify-content-center mb-1">
                                 <small class="fa fa-star text-primary mr-1"></small>
@@ -218,6 +216,9 @@
                                 <small class="fa fa-star text-primary mr-1"></small>
                                 <small class="fa fa-star text-primary mr-1"></small>
                                 <small>(99)</small>
+                            </div>
+                            <div>
+                                <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail'  related_product.slug %}">Voir le produit</a>
                             </div>
                         </div>
                     </div>
