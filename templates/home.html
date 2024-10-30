@@ -150,7 +150,10 @@
                         <small class="fa fa-star text-primary mr-1"></small>
                         <small class="fa fa-star text-primary mr-1"></small>
                         <small>(99)</small>
-                    </div>
+                    </div>  
+                    <div>
+                        <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail'  random_product.slug %}">Voir le produit</a>
+                    </div>            
                 </div>
             </div>
         </div>
@@ -214,6 +217,9 @@
                         <small class="fa fa-star text-primary mr-1"></small>
                         <small class="fa fa-star text-primary mr-1"></small>
                         <small>(99)</small>
+                    </div>
+                    <div>
+                        <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail'  recent_product.slug %}">Voir le produit</a>
                     </div>
                 </div>
             </div>
