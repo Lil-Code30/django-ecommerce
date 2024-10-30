@@ -21,7 +21,7 @@ def home(request):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug= slug)
     #
-    related_products = Product.objects.filter(category=product.category).exclude(id=product.id)[:5]
+    related_products = Product.objects.filter(category=product.category).exclude(id=product.id).order_by('?')[:5]
     context = {
         'product': product,
         'related_products': related_products
