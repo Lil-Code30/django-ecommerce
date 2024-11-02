@@ -14,6 +14,25 @@ def home(request):
 
     return render(request,  'home.html', context)
 
+def magasin(request):
+    #Recuperer tous les produits
+    products = Product.objects.all()
+    return render(request,  'magasin.html', {'products': products})
+
+def category_products(request, slug):
+    #Recuperer la categorie
+    categorie = get_object_or_404(Category, slug=slug)
+
+    #Recuperer les produits de la categorie
+    products =  Product.objects.filter(category=categorie)
+
+    context = {
+        'categorie': categorie, 
+        'products':products
+    }
+
+    return render(request, 'category_products.html', context)
+
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug= slug)
