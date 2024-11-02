@@ -6,6 +6,7 @@ An eCommerce web application built with Django, designed for multimedia products
 - Dynamic homepage displaying featured and recent products
 - Admin dashboard for managing products, categories, and orders
 - Responsive design for all device types
+- ... currently adding new features
 
 ## Home Page
 ![Alt text](screenshots/home01.png)
