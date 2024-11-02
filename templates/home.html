@@ -152,7 +152,7 @@
                         <small>(99)</small>
                     </div>  
                     <div>
-                        <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail'  random_product.slug %}">Voir le produit</a>
+                        <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail' random_product.category.slug  random_product.slug %}">Voir le produit</a>
                     </div>            
                 </div>
             </div>
@@ -219,7 +219,7 @@
                         <small>(99)</small>
                     </div>
                     <div>
-                        <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail'  recent_product.slug %}">Voir le produit</a>
+                        <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail' recent_product.category.slug recent_product.slug %}">Voir le produit</a>
                     </div>
                 </div>
             </div>

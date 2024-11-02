@@ -7,9 +7,9 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Accueil</a>
-                    <a class="breadcrumb-item text-dark" href="#">Magasin</a>
-                    <span class="breadcrumb-item active">{{ product.slug}}</span>
+                    <a class="breadcrumb-item text-dark" href="{% url 'home'%}">Accueil</a>
+                    <a class="breadcrumb-item text-dark" href="{% url 'magasin'%}">Magasin</a>
+                    <span class="breadcrumb-item active">{{ product.name}}</span>
                 </nav>
             </div>
         </div>
@@ -217,7 +217,7 @@
                                 <small>(99)</small>
                             </div>
                             <div>
-                                <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail'  related_product.slug %}">Voir le produit</a>
+                                <a type="button" class="btn btn-outline-success rounded" href="{% url 'product_detail' related_product.category.slug related_product.slug %}">Voir le produit</a>
                             </div>
                         </div>
                     </div>

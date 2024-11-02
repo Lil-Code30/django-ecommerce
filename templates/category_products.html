@@ -6,10 +6,13 @@
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="{% url 'home'%}">Accueil</a>
-                    <span class="breadcrumb-item active">Magasin</span>
-                </nav>
+                <div class="col-12">
+                    <nav class="breadcrumb bg-light mb-30">
+                        <a class="breadcrumb-item text-dark" href="{% url 'home'%}">Accueil</a>
+                        <a class="breadcrumb-item text-dark" href="{% url 'magasin'%}">Magasin</a>
+                        <span class="breadcrumb-item active">{{categorie.name}}</span>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
@@ -169,7 +172,7 @@
                     </div>
                 
                     <!--  Products -->
-                    {% for product in products%}
+                    {% for product in products %}
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">

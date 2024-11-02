@@ -34,8 +34,8 @@ def category_products(request, slug):
     return render(request, 'category_products.html', context)
 
 
-def product_detail(request, slug):
-    product = get_object_or_404(Product, slug= slug)
+def product_detail(request, slug, cat):
+    product = get_object_or_404(Product, slug= slug, category__slug = cat)
     #
     related_products = Product.objects.filter(category=product.category).exclude(id=product.id).order_by('?')[:5]
     context = {
