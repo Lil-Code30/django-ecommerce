@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 
+def signin_user(request):
+    return render(request, 'forms/signin.html')
+
 def home(request):
     #Recuperer 8 produits aleatoires
     random_products = Product.objects.order_by('?')[:8]
@@ -43,3 +46,4 @@ def product_detail(request, slug, cat):
         'related_products': related_products
     }
     return render(request, 'product_detail.html', context)
+
