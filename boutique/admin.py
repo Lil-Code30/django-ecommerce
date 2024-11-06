@@ -27,4 +27,4 @@ class  ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Client)
 class  ClientAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username',  'first_name',  'last_name', 'email', 'phone')
+    list_display = ( 'phone',)
