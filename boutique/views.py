@@ -1,7 +1,37 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Category, Product, Client
+from django.contrib.auth.models import User
+from  django.contrib.auth import login
+from django.contrib import messages
 
 def signin_user(request):
+    if request.method == 'POST':
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        email = request.POST['email']
+        username = request.POST['username']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        phone = request.POST['tel']
+
+        #Crée un nouveau  utilisateur
+        if password1  !=  password2:
+            messages.error(request, 'Les deux mots de passe ne sont pas identiques')
+        elif  User.objects.filter(username=username).exists():
+            messages.error(request, 'Ce nom d\'utilisateur est déjà utilisé')
+        elif  User.objects.filter(email=email).exists():
+            messages.error(request, 'Cette adresse email est déjà utilisé')
+        else:
+            user = User.objects.create_user(username=username, email=email, password=password1,  first_name=firstname, last_name=lastname)
+            user.save()
+
+        if not user.is_superuser:
+            client = Client(user=user, phone=phone)
+            client.save()
+
+            login(request, user)
+            return redirect('home')
+        
     return render(request, 'forms/signin.html')
 
 def home(request):
