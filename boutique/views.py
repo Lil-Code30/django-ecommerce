@@ -34,7 +34,21 @@ def signin_user(request):
         
     return render(request, 'forms/signin.html')
 
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request,  'Connexion reussie !')
+            return redirect('home')
+        else:
+            messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect')
+            return redirect('login')
+    return render(request, 'forms/login.html')
 
 def home(request):
     #Recuperer 8 produits aleatoires
