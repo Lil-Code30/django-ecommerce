@@ -50,6 +50,11 @@ def login_user(request):
             return redirect('login')
     return render(request, 'forms/login.html')
 
+def logout_user(request):
+    logout(request)
+    messages.success(request,  'Vous avez ete deconnecte')
+    return redirect('home')
+
 def home(request):
     #Recuperer 8 produits aleatoires
     random_products = Product.objects.order_by('?')[:8]
