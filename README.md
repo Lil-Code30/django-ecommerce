@@ -23,6 +23,10 @@ An eCommerce web application built with Django, designed for multimedia products
 ## Product details
 ![Alt text](screenshots/product-detail.png)
 
+## Signin Form
+![Alt text](screenshots/signin-from.png)
+
+
 ## 🛠️ Installation
 1. Clone the repository:
  ``` bash
