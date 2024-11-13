@@ -16,11 +16,11 @@ def signin_user(request):
 
         #Crée un nouveau  utilisateur
         if password1  !=  password2:
-            messages.error(request, 'Les deux mots de passe ne sont pas identiques')
+            messages.warning(request, 'Les deux mots de passe ne sont pas identiques')
         elif  User.objects.filter(username=username).exists():
-            messages.error(request, 'Ce nom d\'utilisateur est déjà utilisé')
+            messages.warning(request, 'Ce nom d\'utilisateur est déjà utilisé')
         elif  User.objects.filter(email=email).exists():
-            messages.error(request, 'Cette adresse email est déjà utilisé')
+            messages.warning(request, 'Cette adresse email est déjà utilisé')
         else:
             user = User.objects.create_user(username=username, email=email, password=password1,  first_name=firstname, last_name=lastname)
             user.save()
@@ -46,7 +46,7 @@ def login_user(request):
             messages.success(request,  'Connexion reussie !')
             return redirect('home')
         else:
-            messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect')
+            messages.warning(request, 'Nom d\'utilisateur ou mot de passe incorrect')
             return redirect('login')
     return render(request, 'forms/login.html')
 
