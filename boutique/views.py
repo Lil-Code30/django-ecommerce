@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product, Client
 from django.contrib.auth.models import User
-from  django.contrib.auth import login
+from  django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 
 def signin_user(request):
@@ -33,6 +33,8 @@ def signin_user(request):
             return redirect('home')
         
     return render(request, 'forms/signin.html')
+
+
 
 def home(request):
     #Recuperer 8 produits aleatoires
