@@ -16,7 +16,7 @@
             <div class="d-inline-flex align-items-center">
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mon compte</button>
-                    <a class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-menu dropdown-menu-right">
                         {% if user.is_authenticated %}
                             <a href="{% url 'logout'%}"><button class="dropdown-item" type="button">Se Deconnecter</button></a>
                             <button class="dropdown-item" type="button">Mon Profile</button>
