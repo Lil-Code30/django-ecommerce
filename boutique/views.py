@@ -14,6 +14,8 @@ def signin_user(request):
         password2 = request.POST['password2']
         phone = request.POST['tel']
 
+        user = None
+
         #Crée un nouveau  utilisateur
         if password1  !=  password2:
             messages.warning(request, 'Les deux mots de passe ne sont pas identiques')
@@ -25,6 +27,9 @@ def signin_user(request):
             user = User.objects.create_user(username=username, email=email, password=password1,  first_name=firstname, last_name=lastname)
             user.save()
 
+        if user is None:
+            return redirect('register')
+        
         if not user.is_superuser:
             client = Client(user=user, phone=phone)
             client.save()
