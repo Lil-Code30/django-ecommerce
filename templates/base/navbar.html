@@ -18,11 +18,11 @@
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mon compte</button>
                     <div class="dropdown-menu dropdown-menu-right">
                         {% if user.is_authenticated %}
-                            <a href="{% url 'logout'%}"><button class="dropdown-item" type="button">Se Deconnecter</button></a>
-                            <button class="dropdown-item" type="button">Mon Profile</button>
+                            <a class="dropdown-item" type="button" href="{% url 'logout'%}">Se Deconnecter</a>
+                            <a class="dropdown-item" type="button" href="">Mon Profile</a>
                         {% else %}
-                            <a href="{% url 'login'%}"><button class="dropdown-item" type="button">Se Connecter</button></a>
-                            <a href="{% url 'register'%}"><button class="dropdown-item" type="button">S'inscrire</button></a>
+                            <a class="dropdown-item" type="button" href="{% url 'login'%}">Se Connecter</a>
+                            <a class="dropdown-item" type="button" href="{% url 'register'%}">S'inscrire</a>
                         {% endif %}
                     </div>
                 </div>
